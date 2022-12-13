@@ -169,10 +169,7 @@ def main():
         tokenizer=tokenizer,
         compute_metrics=compute_metrics,
     )
-
-    trainer.optimizer = paddle.optimizer.AdamW(
-        learning_rate=training_args.learning_rate, parameters=model.parameters()
-    )
+    
     checkpoint = None
     if training_args.resume_from_checkpoint is not None:
         checkpoint = training_args.resume_from_checkpoint
